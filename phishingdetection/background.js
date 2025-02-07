@@ -1,13 +1,13 @@
 let isEnabled = false;
 let lastCheckedUrl = ''; 
 
-// Load initial state from storage
+// storage
 chrome.storage.local.get(['isEnabled'], function(result) {
     isEnabled = result.isEnabled || false;
     console.log("Extension enabled state:", isEnabled);
 });
 
-// Function to check if a URL is potentially malicious based on common patterns
+// checking for common patterns
 function isCommonlyBlockedURL(url) {
     const suspiciousPatterns = [
         'about:blank',
